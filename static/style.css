@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5faff;
+    padding: 30px;
+}
+
+.container {
+    width: 450px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #dbe7ff;
+}
+h2 { text-align: center; 
+    color: #74c0fc;}
+h3 { margin-top: 0; }
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.tab {
+    padding: 6px 15px;
+    border-radius: 8px;
+    background: #e9f0ff;
+    text-decoration: none;
+    color: black;
+}
+
+.tab.active {
+    background: #3f7cff;
+    color: white;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    padding: 8px 10px 8px 35px;  /* chừa khoảng icon */
+    width: 85%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+
+.add-task-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-task-box input,
+.add-task-box select {
+    padding: 10px;
+    border: 1px solid #d0d7e6;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    background: white;
+}
+
+.add-task-box input:focus,
+.add-task-box select:focus {
+    border-color: #3f7cff;
+    box-shadow: 0 0 4px #a8c2ff;
+    outline: none;
+}
+
+.add-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: #2f64e89f;
+    transform: scale(1.05);
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #f9fbff;
+}
+
+.task.completed label {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.actions a {
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+}
+.priority-filter {
+    display: flex;
+    width: 400px;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.priority-filter select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.priority-tabs {
+    display: flex;
+    gap: 10px;
+}
+.filter-sort-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-sort-form select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.edit { background: #4d8bff; }
+.delete { background: #ff6363; }
+
+.export-btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: #e42bff94;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.priority {
+    padding: 2px 6px;
+    font-size: 11px;
+    border-radius: 4px;
+    margin-left: 5px;
+    text-transform: capitalize;
+}
+
+.priority.cao { background: #ff6b6b; color: white; }
+.priority.trung { background: #ffd43b; }
+.priority.thấp { background: #74c0fc; }
+
+.edit-box {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.edit-box button {
+    background: #ff982b;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+}

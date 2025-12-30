@@ -1,0 +1,32 @@
+===== DANH SÁCH CÔNG VIỆC =====
+
+ID: 0
+Công việc: t
+Hạn: 
+Ưu tiên: trung
+Trạng thái: Chưa xong
+----------------------------------------
+ID: 1
+Công việc: sss
+Hạn: 2025-12-01
+Ưu tiên: thấp
+Trạng thái: Hoàn thành
+----------------------------------------
+ID: 2
+Công việc: thuogn
+Hạn: 2025-12-11
+Ưu tiên: cao
+Trạng thái: Hoàn thành
+----------------------------------------
+ID: 3
+Công việc: tr
+Hạn: 2026-01-03
+Ưu tiên: cao
+Trạng thái: Chưa xong
+----------------------------------------
+ID: 4
+Công việc: ư
+Hạn: 2025-12-02
+Ưu tiên: trung
+Trạng thái: Chưa xong
+----------------------------------------

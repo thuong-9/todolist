@@ -1,0 +1,38 @@
+[
+  {
+    "text": "t",
+    "done": false,
+    "due_date": "",
+    "priority": "trung"
+  },
+  {
+    "text": "tr",
+    "done": false,
+    "due_date": "2026-01-03",
+    "priority": "cao"
+  },
+  {
+    "text": "ư",
+    "done": false,
+    "due_date": "2025-12-02",
+    "priority": "trung"
+  },
+  {
+    "text": "ưe",
+    "done": false,
+    "due_date": "2025-12-31",
+    "priority": "thấp"
+  },
+  {
+    "text": "đi dạy",
+    "done": true,
+    "due_date": "2025-12-03",
+    "priority": "trung"
+  },
+  {
+    "text": "t",
+    "done": false,
+    "due_date": "",
+    "priority": ""
+  }
+]

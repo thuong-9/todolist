@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Task Manager</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<div class="container">
+    <h2>TODOLIST</h2>
+    <div class="tabs">
+        <a class="tab {{ 'active' if q_status == '' else '' }}" href="/">Tất cả</a>
+        <a class="tab {{ 'active' if q_status == 'todo' else '' }}" href="/?status=todo">Đang làm</a>
+        <a class="tab {{ 'active' if q_status == 'done' else '' }}" href="/?status=done">Hoàn thành</a>
+    </div>
+    <form method="GET" class="priority-filter">
+        <input type="hidden" name="status" value="{{ q_status }}">
+        <select name="priority" onchange="this.form.submit()">
+            <option value="">Ưu tiên</option>
+            <option value="cao"   {% if q_priority == 'cao' %}selected{% endif %}>Cao</option>
+            <option value="trung" {% if q_priority == 'trung' %}selected{% endif %}>Trung bình</option>
+            <option value="thấp"  {% if q_priority == 'thấp' %}selected{% endif %}>Thấp</option>
+        </select>
+        <select name="sort" onchange="this.form.submit()">
+            <option value="">Sắp xếp</option>
+            <option value="date" {% if q_sort == 'date' %}selected{% endif %}>Ngày hạn</option>
+        </select>
+    </form>
+
+    <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search" placeholder="Tìm task..." onkeyup="searchTask()">
+    </div>
+
+    <form action="/add" method="POST" class="add-task-box">
+
+        <input type="text" name="text" placeholder="Nhập công việc..." required>
+        <input type="date" name="due_date">
+        <select name="priority">
+            <option value="">Ưu tiên</option>
+            <option value="cao">Cao</option>
+            <option value="trung">Trung bình</option>
+            <option value="thấp">Thấp</option>
+        </select>
+        <button type="submit" class="add-btn">➕</button>
+
+    </form>
+
+    <h3>Danh sách công việc</h3>
+    <div id="taskList">
+        {% for t in tasks %}
+        {% set i = loop.index0 %}
+        <div class="task {% if t.done %}completed{% endif %}">
+
+            <div>
+                <input type="checkbox" onclick="location.href='{{ url_for('toggle', index=i) }}'"
+                       {% if t.done %}checked{% endif %}>
+                <label>{{ t.text }}</label>
+                <small>{{ t.due_date }}</small>
+                <span class="priority {{t.priority}}">{{ t.priority }}</span>
+            </div>
+
+            <div class="actions">
+                <a class="edit" href="/?edit={{i}}">✎</a>
+                <a class="delete" href="{{ url_for('delete', index=i) }}">🗑</a>
+            </div>
+
+        </div>
+
+        {% if edit_index == i|string %}
+        <!-- Form chỉnh sửa -->
+        <form action="/update/{{i}}" method="POST" class="edit-box">
+            <input type="text" name="text" value="{{ t.text }}">
+            <input type="date" name="due_date" value="{{ t.due_date }}">
+            <select name="priority">
+                <option value="cao" {% if t.priority=='cao' %}selected{% endif %}>Cao</option>
+                <option value="trung" {% if t.priority=='trung' %}selected{% endif %}>Trung bình</option>
+                <option value="thấp" {% if t.priority=='thấp' %}selected{% endif %}>Thấp</option>
+            </select>
+            <button type="submit">Lưu</button>
+        </form>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Nút xuất file -->
+    <a class="export-btn" href="/export_txt">📄 Xuất file Task</a>
+
+</div>
+
+
+<script>
+function searchTask() {
+    let keyword = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll(".task").forEach(task => {
+        let text = task.innerText.toLowerCase();
+        task.style.display = text.includes(keyword) ? "flex" : "none";
+    });
+}
+</script>
+
+</body>
+</html>
